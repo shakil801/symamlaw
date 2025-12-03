@@ -1,6 +1,7 @@
 #Admission Form
 --first user click button then check whether he has account or not.
 -- multistep admission form
+--resource dropdown megamenu (done)
 Folder Structure
 app/
  └─ admission-form/
