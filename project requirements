@@ -2,6 +2,7 @@
 --first user click button then check whether he has account or not.
 -- multistep admission form
 --resource dropdown megamenu (done)
+--gallery dynamic
 Folder Structure
 app/
  └─ admission-form/
