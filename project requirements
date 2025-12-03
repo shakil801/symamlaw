@@ -12,3 +12,69 @@ app/
     │   └─ StepPhoto.jsx
     └─ components/
         └─ StepIndicator.jsx
+page.jsx
+"use client";
+import { useState } from "react";
+import StepCourse from "./steps/StepCourse";
+import StepPersonal from "./steps/StepPersonal";
+import StepAddress from "./steps/StepAddress";
+import StepPhoto from "./steps/StepPhoto";
+import StepIndicator from "./components/StepIndicator";
+
+export default function AdmissionForm() {
+  const [step, setStep] = useState(1);
+  const [formData, setFormData] = useState({
+    course_id: "",
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    city: "",
+    image: null,
+  });
+
+  const next = () => setStep((s) => s + 1);
+  const prev = () => setStep((s) => s - 1);
+
+  return (
+    <div className="max-w-3xl mx-auto p-6">
+      <h1 className="text-2xl font-bold mb-6">Admission Form</h1>
+
+      {step === 1 && (
+        <StepCourse
+          data={formData}
+          setData={setFormData}
+          next={next}
+        />
+      )}
+
+      {step === 2 && (
+        <StepPersonal
+          data={formData}
+          setData={setFormData}
+          next={next}
+          prev={prev}
+        />
+      )}
+
+      {step === 3 && (
+        <StepAddress
+          data={formData}
+          setData={setFormData}
+          next={next}
+          prev={prev}
+        />
+      )}
+
+      {step === 4 && (
+        <StepPhoto
+          data={formData}
+          setData={setFormData}
+          prev={prev}
+        />
+      )}
+
+<StepIndicator step={step} />
+    </div>
+  );
+}
