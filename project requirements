@@ -78,3 +78,6 @@ export default function AdmissionForm() {
     </div>
   );
 }
+
+{*/ instructor */}
+--frontend design
