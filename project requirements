@@ -3,6 +3,7 @@
 -- multistep admission form
 --resource dropdown megamenu (done)
 --gallery dynamic
+--package dynamic
 Folder Structure
 app/
  └─ admission-form/
