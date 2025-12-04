@@ -84,3 +84,85 @@ export default function AdmissionForm() {
 
 {*/ instructor */}
 --frontend design
+
+
+{*/Instructor */}
+<div>
+  {instructors && instructors.length > 0 && (
+    <div className="px-4 md:px-10 xl:px-32 pt-16">
+      
+      {/* Section Title */}
+      <div className="text-center mb-14">
+        <h1 className="inline-block text-4xl font-bold text-[#224770] dark:text-white relative">
+          Our Instructors
+          <span className="absolute left-0 -bottom-2 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></span>
+        </h1>
+        <p className="mt-4 text-gray-500 dark:text-gray-400">
+          Learn from experienced & dedicated mentors
+        </p>
+      </div>
+
+      {/* Slider */}
+      <Slider {...settings}>
+        {instructors.map((instructor, index) => (
+          <div key={index} className="px-4 py-12">
+            <div className="group flex justify-center">
+              
+              {/* Card */}
+              <div className="relative w-[360px] rounded-2xl bg-white/90 dark:bg-gray-900 
+                              backdrop-blur-xl shadow-lg hover:shadow-2xl
+                              transition-all duration-500 hover:-translate-y-3
+                              border border-gray-200/50 dark:border-gray-700">
+
+                {/* Image */}
+                <div className="relative h-60 overflow-hidden rounded-t-2xl">
+                  {instructor.image ? (
+                    <Image
+                      src={instructor.image}
+                      alt={instructor.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition duration-500"
+                    />
+                  ) : (
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/ybD15Vi9IHE"
+                      allowFullScreen
+                    />
+                  )}
+
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+
+                  {/* Position Badge */}
+                  <span className="absolute bottom-4 left-4 text-xs font-semibold px-3 py-1 rounded-full 
+                                   bg-indigo-600 text-white shadow-md">
+                    {instructor.position}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="p-6 text-center">
+                  <h3 className="text-2xl font-bold text-[#224770] dark:text-white mb-1">
+                    {instructor.name}
+                  </h3>
+
+                  <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400 mb-2">
+                    {instructor.conduct_course}
+                  </p>
+
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    {instructor.batch}
+                    {instructor.merit && ` • Rank ${instructor.merit}`}
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        ))}
+      </Slider>
+    </div>
+  )}
+</div>
+--
